@@ -55,17 +55,15 @@ gulp.task( 'clean:build', function () {
 
 gulp.task( 'build:cp:index', function () {
     return gulp.src( [
-        './src/index.html',
-        './src/favicon.png',
-        './src/assets/img/logo.jpg'
+        './src/assets/favicon.png'
     ] )
         .pipe( gulp.dest( 'build/' ) );
 } );
 
 gulp.task( 'build:webpack', function () {
-    return gulp.src( 'src/app/app.js' )
+    return gulp.src( 'src/app/index.js' )
         .pipe( gulpWebpack( require( './webpack.prod.js' ), webpack ) )
-        .pipe( gulp.dest( 'build/bundle/' ) );
+        .pipe( gulp.dest( 'build/' ) );
 } );
 
 

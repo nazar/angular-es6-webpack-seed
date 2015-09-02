@@ -1,4 +1,5 @@
 export default function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
+    'ngInject';
 
     $locationProvider.html5Mode( {
         enabled: true,

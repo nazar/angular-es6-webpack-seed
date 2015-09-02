@@ -1,6 +1,6 @@
 var path = require( 'path' );
 var webpack = require( 'webpack' );
-var CompressionPlugin = require('compression-webpack-plugin');
+var CompressionPlugin = require( 'compression-webpack-plugin' );
 
 var webpackProdConfig = {
     overrides: {
@@ -14,7 +14,7 @@ var webpackProdConfig = {
     loaders: [
         {
             test: /\.js$/,
-            loader: "ng-annotate?add=true!babel",
+            loaders: [ 'ng-annotate', 'babel' ],
             include: path.join( __dirname, 'src', 'app' ),
             exclude: path.join( __dirname, 'node_modules' )
         }
@@ -33,7 +33,7 @@ var webpackProdConfig = {
             algorithm: 'gzip',
             threshold: 10240,
             minRatio: 0.8
-        })
+        } )
     ]
 };
 
