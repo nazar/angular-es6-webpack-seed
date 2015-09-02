@@ -4,32 +4,36 @@ var webpack = require( 'webpack' );
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var pathAppTo;
+var pathAssets;
 
 function pathTo() {
     return path.join( __dirname, 'src', path.join.apply( path, arguments ) );
 }
 
-pathAppTo = _.partial( pathTo, 'app' );
+pathApp = _.partial( pathTo, 'app' );
+pathAssets = _.partial( pathTo, 'assets' );
 
 module.exports = function ( options ) {
     var config = _.merge( {}, {
         entry: {
             vendor: [
+                'font-awesome/css/font-awesome.min.css',
+
                 'jquery',
                 'bootstrap/dist/js/bootstrap.min.js',
-                'font-awesome/css/font-awesome.min.css',
-                'angular/angular.min.js',
+                'bluebird',
+                'lodash',
+
+                'angular',
                 'angular-animate',
                 'angular-aria',
-                'angular-ui-router',
-                'bluebird',
-                'lodash'
+                'angular-ui-router'
             ]
         },
 
         output: {
             path: path.join( __dirname, 'build' ),
-            filename: 'bundle/app-[hash].js',
+            filename: 'bundle/[name]-[hash].js',
             publicPath: '/'
         },
         plugins: [
@@ -41,7 +45,7 @@ module.exports = function ( options ) {
                 'window.jQuery': 'jquery'
             } ),
             new HtmlWebpackPlugin({
-                template: './src/app/templates/index.html',
+                template: './src/assets/index.html',
                 inject: 'body'
             }),
             new webpack.optimize.CommonsChunkPlugin( 'vendor', 'bundle/vendor-[hash].js' )
@@ -50,24 +54,15 @@ module.exports = function ( options ) {
             extensions: [ '', '.js' ],
             alias: {
                 //application aliases
-                //actions: pathAppTo( 'actions' ),
-                //components: pathAppTo( 'components' ),
-                //lib: pathAppTo( 'lib' ),
-                //mixins: pathAppTo( 'mixins' ),
-                //modals: pathAppTo( 'modals' ),
-                //models: pathAppTo( 'models' ),
-                //resources: pathAppTo( 'resources' ),
-                //services: pathAppTo( 'services' ),
-                templates: pathAppTo( 'templates' ),
-                //views: pathAppTo( 'views' ),
-                //utils: pathAppTo( 'utils' ),
+                controllers: pathApp( 'controllers' ),
+                directives: pathApp( 'directives' ),
+
+                templates: pathAssets( 'templates' ),
 
                 assets: pathTo( 'assets' ),
-                //config: pathAppTo( 'config.js' ),
 
                 //vendor aliases
-                jquery: 'jquery/dist/jquery.min.js'//,
-                //angular: 'angular/angular.min.js'
+                jquery: 'jquery/dist/jquery.min.js'
             }
         },
         module: {
