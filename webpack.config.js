@@ -1,17 +1,15 @@
 var _ = require( 'lodash' );
 var path = require( 'path' );
 var webpack = require( 'webpack' );
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 
-var pathAppTo;
-var pathAssets;
+var pathApp;
 
 function pathTo() {
     return path.join( __dirname, 'src', path.join.apply( path, arguments ) );
 }
 
 pathApp = _.partial( pathTo, 'app' );
-pathAssets = _.partial( pathTo, 'assets' );
 
 module.exports = function ( options ) {
     var config = _.merge( {}, {
@@ -44,21 +42,21 @@ module.exports = function ( options ) {
                 $: 'jquery',
                 'window.jQuery': 'jquery'
             } ),
-            new HtmlWebpackPlugin({
+            new HtmlWebpackPlugin( {
                 template: './src/assets/index.html',
                 inject: 'body'
-            }),
+            } ),
             new webpack.optimize.CommonsChunkPlugin( 'vendor', 'bundle/vendor-[hash].js' )
         ],
         resolve: {
             extensions: [ '', '.js' ],
             alias: {
-                //application aliases
+                //app sub aliases
+                app: pathApp( 'index.js' ),
                 controllers: pathApp( 'controllers' ),
                 directives: pathApp( 'directives' ),
 
-                templates: pathAssets( 'templates' ),
-
+                //assets sub aliases
                 assets: pathTo( 'assets' ),
 
                 //vendor aliases
@@ -69,7 +67,11 @@ module.exports = function ( options ) {
             loaders: [
                 {
                     test: /\.html$/,
-                    loader: 'file?name=templates/[name]-[hash:6].html'
+                    loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './src/app')) + '/!html'
+                },
+                {
+                    test: /\.styl$/,
+                    loader: 'style-loader!css!stylus'
                 },
                 {
                     test: /\.css$/,

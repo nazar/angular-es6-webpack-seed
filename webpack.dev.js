@@ -17,7 +17,7 @@ var webpackDevConfig = {
     loaders: [
         {
             test: /\.js$/,
-            loaders: [ 'babel'],
+            loaders: [ 'ng-annotate', 'babel' ],
             include: path.join( __dirname, 'src', 'app' ),
             exclude: path.join( __dirname, 'node_modules' )
         }

@@ -36,17 +36,6 @@
         "indent": 2,
         "vars-on-top": 2,
         "camelcase": [2, {"properties": "never"}],
-        "semi": [2, "always"],
-
-
-        "react/jsx-no-undef": 2,
-        "react/jsx-uses-react": 2,
-        "react/jsx-uses-vars": 2,
-        "react/no-did-mount-set-state": 1,
-        "react/no-did-update-set-state": 1,
-        "react/no-unknown-property": 1,
-        "react/wrap-multilines": 1,
-        "react/react-in-jsx-scope": 1,
-        "react/no-unknown-property": 2
+        "semi": [2, "always"]
     }
 }

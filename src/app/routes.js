@@ -1,3 +1,5 @@
+import homeTemplate from 'controllers/home/home.html';
+
 export default function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
     'ngInject';
 
@@ -11,7 +13,7 @@ export default function ( $stateProvider, $urlRouterProvider, $locationProvider 
     $stateProvider
         .state( 'home', {
             url: '/',
-            templateUrl: require( 'templates/home.html' ),
-            controller: require( 'controllers/homeController' )
+            templateUrl: homeTemplate,
+            controller: 'HomeController'
         } );
 }
