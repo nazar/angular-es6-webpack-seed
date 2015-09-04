@@ -11,13 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='shortcut icon' type='image/png' href='/favicon.png' />
 </head>
-<body id="application">
+<body id="root">
+
+    <seed-navbar></seed-navbar>
 
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <div ui-view></div>
+
+    <seed-footer></seed-footer>
 
 </body>
 </html>

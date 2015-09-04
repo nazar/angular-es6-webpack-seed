@@ -10,7 +10,9 @@ import directives from './directives';
 
 export default angular
     .module( 'app', [
+        'mgcrea.ngStrap',
         angularUIRouter,
+
         controllers,
         directives
     ] )

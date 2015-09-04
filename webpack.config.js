@@ -16,16 +16,20 @@ module.exports = function ( options ) {
         entry: {
             vendor: [
                 'font-awesome/css/font-awesome.min.css',
+                'bootstrap/dist/css/bootstrap.min.css',
+                'bootstrap/dist/css/bootstrap-theme.min.css',
 
                 'jquery',
-                'bootstrap/dist/js/bootstrap.min.js',
                 'bluebird',
                 'lodash',
 
                 'angular',
                 'angular-animate',
                 'angular-aria',
-                'angular-ui-router'
+                'angular-ui-router',
+
+                'angular-strap/dist/angular-strap.min.js',
+                'angular-strap/dist/angular-strap.tpl.min.js'
             ]
         },
 
