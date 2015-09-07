@@ -1,5 +1,5 @@
 require( './page2.styl' );
 
-export default function( $scope ) {
+export default function() {
     'ngInject';
 }

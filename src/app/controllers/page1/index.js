@@ -1,5 +1,5 @@
 require( './style.styl' );
 
-export default function( $scope ) {
+export default function() {
     'ngInject';
 }
