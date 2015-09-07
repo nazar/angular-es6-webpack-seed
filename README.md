@@ -20,8 +20,8 @@ Please read the [provisioning](./provision/README.md) section for setting up the
 An [.eslintrc](./eslintrc) is provided for [ESLint](http://eslint.org/) but the eslint packages are not listed in [package.json](./package.json) as
   the eslint modules are required for the client machine (and not the development server).
 
-To install JSX compatible ESLint modules:
+To install ESLint:
 
 ```
-npm install -g eslint eslint-plugin-react
+npm install -g eslint
 ```

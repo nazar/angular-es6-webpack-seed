@@ -7,6 +7,7 @@ import routes from './routes';
 
 import controllers from './controllers';
 import directives from './directives';
+import services from './services';
 
 export default angular
     .module( 'app', [
@@ -14,6 +15,7 @@ export default angular
         angularUIRouter,
 
         controllers,
-        directives
+        directives,
+        services
     ] )
     .config( routes );
