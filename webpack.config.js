@@ -35,7 +35,7 @@ module.exports = function ( options ) {
 
         output: {
             path: path.join( __dirname, 'build' ),
-            filename: 'bundle/[name]-[hash].js',
+            filename: 'js/[name]-[hash].js',
             publicPath: '/'
         },
         plugins: [
@@ -50,7 +50,7 @@ module.exports = function ( options ) {
                 template: './src/assets/index.html',
                 inject: 'body'
             } ),
-            new webpack.optimize.CommonsChunkPlugin( 'vendor', 'bundle/vendor-[hash].js' )
+            new webpack.optimize.CommonsChunkPlugin( 'vendor', 'js/vendor-[hash].js' )
         ],
         resolve: {
             extensions: [ '', '.js' ],
@@ -83,15 +83,15 @@ module.exports = function ( options ) {
                 },
                 {
                     test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                    loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+                    loader: 'url-loader?name=assets/[hash][name].[ext]&limit=10000&mimetype=application/font-woff'
                 },
                 {
                     test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                    loader: 'file-loader'
+                    loader: 'file-loader?name=assets/[hash][name].[ext]'
                 },
                 {
                     test: /\.jpg|\.png|\.mp3/,
-                    loader: 'file-loader'
+                    loader: 'file-loader?name=assets/[hash][name].[ext]'
                 }
             ]
         },

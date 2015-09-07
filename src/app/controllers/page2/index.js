@@ -1,4 +1,4 @@
-require( './page2.styl' );
+require( './style.styl' );
 
 export default function() {
     'ngInject';
