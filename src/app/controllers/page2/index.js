@@ -1,4 +1,4 @@
-require( './style.styl' );
+import './style.styl';
 
 export default function() {
     'ngInject';

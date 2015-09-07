@@ -1,3 +1,4 @@
+import './style.styl';
 import ngImg from './images/angular.png';
 
 export default function( $scope, $state, Authentication ) {
