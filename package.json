@@ -4,7 +4,7 @@
     "description": "AngularJS with ES6 (via babel) and webpack",
     "main": "app.js",
     "scripts": {
-      "test": "eslint .;node node_modules/gulp/bin/gulp.js build"
+        "test": "node node_modules/eslint/bin/eslint.js .;node node_modules/gulp/bin/gulp.js build"
     },
     "author": {
         "name": "Nazar Aziz",
@@ -26,6 +26,7 @@
         "babel-loader": "5.3.2",
         "compression-webpack-plugin": "0.2.0",
         "css-loader": "0.17.0",
+        "eslint": "^4.4.1",
         "file-loader": "0.8.4",
         "gulp": "3.9.0",
         "gulp-clean": "0.3.1",
