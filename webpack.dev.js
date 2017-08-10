@@ -4,7 +4,7 @@ var webpack = require( 'webpack' );
 var webpackDevConfig = {
     overrides: {
         devtool: 'eval',
-        debug: true,
+        //debug: true,
         entry: {
             app: [
                 'webpack-dev-server/client?http://192.168.30.25:8080',
@@ -17,7 +17,7 @@ var webpackDevConfig = {
     loaders: [
         {
             test: /\.js$/,
-            loaders: [ 'ng-annotate', 'babel' ],
+            loaders: [ 'ng-annotate-loader', 'babel-loader' ],
             include: path.join( __dirname, 'src', 'app' ),
             exclude: path.join( __dirname, 'node_modules' )
         }
