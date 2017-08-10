@@ -31,12 +31,12 @@ gulp.task( 'webpack-dev-server', function ( callback ) {
             colors: true
         }
     } ).listen( 8080, '0.0.0.0', function ( err ) {
-            if ( err ) {
-                throw new gutil.PluginError( 'webpack-dev-server', err );
-            }
-            gutil.log( '[webpack-dev-server]', 'http://192.168.30.25:8080' );
-            callback();
-        } );
+        if ( err ) {
+            throw new gutil.PluginError( 'webpack-dev-server', err );
+        }
+        gutil.log( '[webpack-dev-server]', 'http://192.168.30.25:8080' );
+        callback();
+    } );
 
     //setup stylus watcher
     gulp.watch( [ 'src/assets/stylus/*.styl', 'src/assets/stylus/**/*.styl' ], [ 'stylus:compile' ] );

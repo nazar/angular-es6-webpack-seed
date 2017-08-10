@@ -14,7 +14,7 @@ var webpackProdConfig = {
     loaders: [
         {
             test: /\.js$/,
-            loaders: [ 'ng-annotate', 'babel' ],
+            loaders: [ 'ng-annotate-loader', 'babel-loader' ],
             include: path.join( __dirname, 'src', 'app' ),
             exclude: path.join( __dirname, 'node_modules' )
         }
@@ -26,7 +26,6 @@ var webpackProdConfig = {
                 NODE_ENV: JSON.stringify( 'production' )
             }
         } ),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin(),
         new CompressionPlugin({
             asset: '{file}.gz',

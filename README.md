@@ -1,5 +1,7 @@
 # About
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/siren/angular-es6-webpack-seed.svg)](https://greenkeeper.io/)
+
 A **seed** AngularJS project using:
 
 + AngularJS 1.4.5

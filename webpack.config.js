@@ -18,16 +18,13 @@ module.exports = function ( options ) {
                 'font-awesome/css/font-awesome.min.css',
                 'bootstrap/dist/css/bootstrap.min.css',
                 'bootstrap/dist/css/bootstrap-theme.min.css',
-
                 'jquery',
                 'bluebird',
                 'lodash',
-
                 'angular',
                 'angular-animate',
                 'angular-aria',
                 'angular-ui-router',
-
                 'angular-strap/dist/angular-strap.min.js',
                 'angular-strap/dist/angular-strap.tpl.min.js'
             ]
@@ -50,10 +47,10 @@ module.exports = function ( options ) {
                 template: './src/assets/index.html',
                 inject: 'body'
             } ),
-            new webpack.optimize.CommonsChunkPlugin( 'vendor', 'js/vendor-[hash].js' )
+            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename:'js/vendor-[hash].js' })
         ],
         resolve: {
-            extensions: [ '', '.js' ],
+            extensions: [ '.js' ],
             alias: {
                 //app sub aliases
                 app: pathApp( 'index.js' ),
@@ -71,11 +68,12 @@ module.exports = function ( options ) {
             loaders: [
                 {
                     test: /\.html$/,
-                    loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './src/app')) + '/!html'
+                    loader: 'ngtemplate-loader?relativeTo=' + (path.resolve(__dirname, './src/app')) + '/!html-loader',
+                    exclude: path.resolve(__dirname, 'src/assets/index.html')
                 },
                 {
                     test: /\.styl$/,
-                    loader: 'style-loader!css!stylus'
+                    loader: 'style-loader!css-loader!stylus-loader'
                 },
                 {
                     test: /\.css$/,
@@ -96,7 +94,8 @@ module.exports = function ( options ) {
             ]
         },
         resolveLoader: {
-            root: path.join( __dirname, 'node_modules' )
+            modules: [__dirname, 'node_modules'],
+            extensions: [ '*','.js' ]
         }
     }, options.overrides );
 

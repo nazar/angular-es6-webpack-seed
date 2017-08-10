@@ -5,19 +5,6 @@
         "node": true,
         "jquery": true
     },
-    "ecmaFeatures": {
-        "arrowFunctions": true,
-        "blockBindings": true,
-        "classes": true,
-        "defaultParams": true,
-        "destructuring": true,
-        "forOf": true,
-        "generators": true,
-        "modules": true,
-        "spread": true,
-        "templateStrings": true,
-        "jsx": true
-    },
     "rules": {
         "consistent-return": [0],
         "key-spacing": [0],
@@ -37,5 +24,8 @@
         "vars-on-top": 2,
         "camelcase": [2, {"properties": "never"}],
         "semi": [2, "always"]
+    },
+    "parserOptions": {
+        "sourceType": "module"
     }
 }
