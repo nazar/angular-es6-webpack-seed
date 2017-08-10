@@ -37,5 +37,8 @@
         "vars-on-top": 2,
         "camelcase": [2, {"properties": "never"}],
         "semi": [2, "always"]
+    },
+    "parserOptions": {
+        "sourceType": "module"
     }
 }
