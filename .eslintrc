@@ -5,19 +5,6 @@
         "node": true,
         "jquery": true
     },
-    "ecmaFeatures": {
-        "arrowFunctions": true,
-        "blockBindings": true,
-        "classes": true,
-        "defaultParams": true,
-        "destructuring": true,
-        "forOf": true,
-        "generators": true,
-        "modules": true,
-        "spread": true,
-        "templateStrings": true,
-        "jsx": true
-    },
     "rules": {
         "consistent-return": [0],
         "key-spacing": [0],
